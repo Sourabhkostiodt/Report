@@ -21,7 +21,7 @@
             formData.forEach((value, key) => {
                 data[key] = value;
             });
-
+          console.log('on fusntion');
             const response = await fetch("https://reportform.azurewebsites.net/api/Submit?", {
                 method: "POST",
                 body: JSON.stringify(data),
