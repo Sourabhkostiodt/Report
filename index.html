@@ -94,9 +94,12 @@
             </div> 
     </div>
     <script type="text/javascript>
+      document.getElementById("dataForm").addEventListener("submit", async function(event) {
+        alert('htis is test');
+      )};
      
         document.getElementById("dataForm").addEventListener("submit", async function(event) {
-          alert('htis is test')
+          alert('htis is test');
             event.preventDefault();
             
             const formData = new FormData(event.target);
