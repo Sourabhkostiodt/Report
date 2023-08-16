@@ -28,11 +28,12 @@
                 mode: 'no-cors',
                 headers: {
                     "Content-Type": "application/json",
+                    
                     'Access-Control-Allow-Origin': "https://agreeable-meadow-0617ca510.3.azurestaticapps.net/"
                 }
                 
             });
-            console.log(body);
+            console.log(data);
             if (response.ok) {
                 alert("Data submitted successfully!");
             } else {
