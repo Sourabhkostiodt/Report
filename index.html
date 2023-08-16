@@ -1,81 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <style type="text/css">
-        h1 {text-align: center;}
-        #reader { width: 100%;}
-        .result {background-color: green;color: #fff;padding: 20px;}
-        #reader__scan_region {background: white;}
-        .row {
-    width: 80%;
-    padding: 10px;
-
-    /* text-align: center; */
-    display: block;
-    margin: 0 auto;
-}input {
-    width: 100%;
-    padding: 10px 0px;
-    margin: 0px;
-}
-
-.form-group {
-    margin-bottom: 24px;
-    padding: 10px;
-}
-.
-    </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.2.0/html5-qrcode.min.js"></script>
-    <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
+    <title>Submit Data</title>
 </head>
 <body>
-    <div class="container">
-        <form id="dataForm" class="this">
+    <form id="dataForm" class="this">
 
-              <h1>Reports</h1>
-              <div class="row">
-                <label for="exampleInputEmail1">Issue Date</label>
-                <input type="text" value="" name="date" class="form-control" id="exampleInputEmail1" >
-              </div>
-              <div class="row">
-                <label for="exampleInputEmail1">Issue Description</label>
-                <input type="text" value="" name="Description" class="form-control" >
-              </div>
-              <div class="row">
-                <label for="exampleInputEmail1">Community Name</label>
-                <input type="text"  value="" name="cname" class="form-control"  >
-              </div>
-              <div class="row">
-                <label for="exampleInputEmail1">Reported By</label>
-                <input type="Date" value="" name="reported" class="form-control" id="exampleInputEmail1">
-              </div>
-              <div class="row">
-                <label for="exampleInputEmail1">Issue severity</label>
-                <input type="text" value="" name="severity" class="form-control"   placeholder="Enter severity">
-              </div>
-              <div class="row">
-                <button onclick="getlocation()">Location</button>
-                <input type="hidden" id="lat" value="" />
-                <input type="hidden" id="long" value="" >
-              </div>
-              <div class="row">
-                <input type="hidden" id="scanner_value" value="" >
-              </div>
-              <div class="row">
-                  <div class="col-6">
-                    <input type="submit" class="form-control submit"/>
-                  </div>
-                  <div class="col-6">
-                    <input type="reset" class="form-control reset"/>
-                  </div>
-               
-                </div>
-                
-          </form>
-    </div>
-    <script type="text/javascript>
-     
-      document.getElementById("dataForm").addEventListener("submit", async function(event) {
+        <div class="row">
+          <label for="exampleInputEmail1">Issue Date</label>
+          <input type="text" value="" name="date" class="form-control" id="exampleInputEmail1" >
+        </div>
+        <div class="row">
+          <label for="exampleInputEmail1">Issue Description</label>
+          <input type="text" value="" name="Description" class="form-control" >
+        </div>
+        <div class="row">
+          <label for="exampleInputEmail1">Community Name</label>
+          <input type="text"  value="" name="cname" class="form-control"  >
+        </div>
+        <div class="row">
+          <label for="exampleInputEmail1">Reported By</label>
+          <input type="Date" value="" name="reported" class="form-control" id="exampleInputEmail1">
+        </div>
+        <div class="row">
+          <label for="exampleInputEmail1">Issue severity</label>
+          <input type="text" value="" name="severity" class="form-control"   placeholder="Enter severity">
+        </div>
+        <div class="row">
+          <button onclick="getlocation()">Location</button>
+          <input type="hidden" id="lat" value="" />
+          <input type="hidden" id="long" value="" >
+        </div>
+        <div class="row">
+          <input type="hidden" id="scanner_value" value="" >
+        </div>
+        <div class="row">
+            <div class="col-6">
+              <input type="submit" class="form-control submit"/>
+            </div>
+            <div class="col-6">
+              <input type="reset" class="form-control reset"/>
+            </div>
+         
+          </div>   
+    </form>
+
+    <script>
+        document.getElementById("dataForm").addEventListener("submit", async function(event) {
             event.preventDefault();
             
             const formData = new FormData(event.target);
@@ -90,7 +61,7 @@
                 mode: 'no-cors',
                 headers: {
                     "Content-Type": "application/json",
-
+                    
                     'Access-Control-Allow-Origin': "https://agreeable-meadow-0617ca510.3.azurestaticapps.net/"
                 }
                 
@@ -102,46 +73,6 @@
                 alert("Failed to submit data.");
             }
         });
-/* this aia test  */
-        function onScanSuccess(qrCodeMessage) {
-            document.getElementById("result").innerHTML =
-            '<span class="result">' + qrCodeMessage + "</span>";
-            document.getElementById("scanner_value").innerHTML = qrCodeMessage;
-        }
-        function onScanError(errorMessage) {
-            // Handle Scan Error
-        }
-        // Setting up Qr Scanner properties
-        var html5QrCodeScanner = new Html5QrcodeScanner("reader", {
-           fps: 10,
-           qrbox: 250
-        });
-        html5QrCodeScanner.render(onScanSuccess, onScanError);
-
-
-        //  ---------------------------------------- //
-
-        var x= document.getElementById("location");
-      function getlocation() {
-    	  if(navigator.geolocation){
-    		  navigator.geolocation.getCurrentPosition(showPosition)
-    	  }
-    	  else
-    	  {
-          alert("Sorry! your browser is not supporting")
-        } 
-      }
-
-      function showPosition(position){
-        var lat = position.coords.latitude;
-        var long = position.coords.longitude;
-        var x = "Your current location is (" + "Latitude: " + position.coords.latitude + ", " + "Longitude: " +    position.coords.longitude + ")";
-        document.getElementById("location").innerHTML = x;
-        document.getElementById("lat").innerHTML = lat;
-        document.getElementById("long").innerHTML = long;
-      }
     </script>
-</div>
-
 </body>
 </html>
