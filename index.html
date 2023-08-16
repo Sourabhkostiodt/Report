@@ -21,10 +21,11 @@
             formData.forEach((value, key) => {
                 data[key] = value;
             });
-          // console.log('on fusntion');
+            console.log('on fusntion');
             const response = await fetch("https://reportform.azurewebsites.net/api/Submit?", {
                 method: "POST",
                 body: JSON.stringify(data),
+                mode: 'no-cors',
                 headers: {
                     "Content-Type": "application/json",
                     'Access-Control-Allow-Origin': "https://agreeable-meadow-0617ca510.3.azurestaticapps.net/"
