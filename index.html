@@ -57,7 +57,7 @@
           <input type="hidden" id="long" value="" >
         </div>
         <div class="row">
-          <input type="hidden" id="scanner_value" value="" >
+          <input type="hidden" id="result" value="" >
         </div>
         <div class="row">
             <div class="col">
@@ -103,6 +103,25 @@
                 alert("Failed to submit data.");
             }
         });
+
+        /* this aia test  */
+        function onScanSuccess(qrCodeMessage) {
+            document.getElementById("result").innerHTML =
+            '<span class="result">' + qrCodeMessage + "</span>";
+            document.getElementById("scanner_value").innerHTML = qrCodeMessage;
+        }
+        function onScanError(errorMessage) {
+            // Handle Scan Error
+        }
+        // Setting up Qr Scanner properties
+        var html5QrCodeScanner = new Html5QrcodeScanner("reader", {
+           fps: 10,
+           qrbox: 250
+        });
+        html5QrCodeScanner.render(onScanSuccess, onScanError);
+
+
+        //  ---------------------------------------- //
     </script>
 </body>
 </html>
