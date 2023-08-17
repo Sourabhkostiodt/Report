@@ -103,7 +103,7 @@
         function onScanSuccess(qrCodeMessage) {
             document.getElementById("result").innerHTML =
             '<span class="result">' + qrCodeMessage + "</span>";
-            document.getElementById("scanner_value").innerHTML.val() = qrCodeMessage;
+            document.getElementById("scanner_value").val() = qrCodeMessage;
         }
         function onScanError(errorMessage) {
             // Handle Scan Error
@@ -135,8 +135,8 @@
         var long = position.coords.longitude;
         var x = "Your current location is (" + "Latitude: " + position.coords.latitude + ", " + "Longitude: " +    position.coords.longitude + ")";
         document.getElementById("location").innerHTML = x;
-        document.getElementById("lat").innerHTML.val() = lat;
-        document.getElementById("long").innerHTML.val() = long;
+        document.getElementById("lat").val() = lat;
+        document.getElementById("long").val() = long;
       }
     </script>
     <script>  document.getElementById("dataForm").addEventListener("submit", async function(event) {
