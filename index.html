@@ -2,6 +2,24 @@
 <html>
 <head>
     <title>Submit Data</title>
+    <script> /* this aia test  */
+        function onScanSuccess(qrCodeMessage) {
+            document.getElementById("result").innerHTML =
+            '<span class="result">' + qrCodeMessage + "</span>";
+            document.getElementById("scanner_value").innerHTML = qrCodeMessage;
+        }
+        function onScanError(errorMessage) {
+            // Handle Scan Error
+        }
+        // Setting up Qr Scanner properties
+        var html5QrCodeScanner = new Html5QrcodeScanner("reader", {
+           fps: 10,
+           qrbox: 250
+        });
+        html5QrCodeScanner.render(onScanSuccess, onScanError);
+
+
+        //  ---------------------------------------- //</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.2.0/html5-qrcode.min.js"></script>
     <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -115,24 +133,7 @@
             }
         });
 
-        /* this aia test  */
-        function onScanSuccess(qrCodeMessage) {
-            document.getElementById("result").innerHTML =
-            '<span class="result">' + qrCodeMessage + "</span>";
-            document.getElementById("scanner_value").innerHTML = qrCodeMessage;
-        }
-        function onScanError(errorMessage) {
-            // Handle Scan Error
-        }
-        // Setting up Qr Scanner properties
-        var html5QrCodeScanner = new Html5QrcodeScanner("reader", {
-           fps: 10,
-           qrbox: 250
-        });
-        html5QrCodeScanner.render(onScanSuccess, onScanError);
-
-
-        //  ---------------------------------------- //
+       
     </script>
 </body>
 </html>
