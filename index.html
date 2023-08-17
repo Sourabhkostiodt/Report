@@ -66,9 +66,7 @@
           <input type="hidden" id="lat" value="" />
           <input type="hidden" id="long" value="" >
         </div>
-        <div class="row">
-          <input type="hidden" id="result" value="" >
-        </div>
+      
        
        
                     <div class="row">
@@ -85,6 +83,9 @@
             <div id="reader"></div>
         </div>
     </div>
+    <div class="row">
+        <input type="hidden" id="result" value="" >
+      </div>
 
     <script>
         document.getElementById("dataForm").addEventListener("submit", async function(event) {
@@ -102,7 +103,6 @@
                 mode: 'no-cors',
                 headers: {
                     "Content-Type": "application/json",
-                    
                     'Access-Control-Allow-Origin': "https://agreeable-meadow-0617ca510.3.azurestaticapps.net/"
                 }
                 
