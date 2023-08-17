@@ -20,7 +20,7 @@
     </style>
     </head>
     <body>
-        <div class="container">
+        
             <form id="dataForm" class="this">
             	<h1>Reports</h1>
             	<div class="row">
@@ -65,14 +65,16 @@
                         <div id="reader"></div>
                     </div>
                 </div>
+                <div class="container">
                 <div class="row">
                     <div class="col-6">
                         <input type="submit" class="btn btn-primary form-control submit"/>
                     </div>
                     <div class="col-6">
-                        <input type="reset" class="btn btn-primary form-control reset"/>
+                        <input type="reset" class="btn btn-danger form-control reset"/>
                     </div>
                 </div>
+              </div>
             </form>
          
           <!-- <div class="row">
@@ -89,7 +91,7 @@
                     </div>
                 </div>
             </div>  -->
-        </div>
+        
         <script type="text/javascript">
             function onScanSuccess(qrCodeMessage) {
             //document.getElementById("result").innerHTML =
