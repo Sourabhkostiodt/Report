@@ -60,12 +60,17 @@
               </div>
               <div class="row">
                 <button onclick="getlocation()">Location</button>
-                <input type="hidden" id="lat" value="" />
-                <input type="hidden" id="long" value="" >
+                <input type="hidden" id="lat" />
+                <input type="hidden" id="long"/>
               </div>
               <div class="row">
                 <input type="hidden" id="scanner_value" value="" >
               </div>
+              <div class="row">
+                <div class="col">
+                    <div id="reader"></div>
+                </div>
+            </div>
               <div class="row">
                   <div class="col-6">
                     <input type="submit" class="form-control submit"/>
@@ -80,15 +85,10 @@
          
           <div class="row">
                 <h1>Find your Current location</h1>
-                  <button onclick="getlocation()">Location</button>
-                    
+                  <button onclick="getlocation()">Location</button>                   
                 <div id="location"></div>
           </div>
-           <div class="row">
-                <div class="col">
-                    <div id="reader"></div>
-                </div>
-            </div>
+         
             <div class="row">
                 <div class="col">
                     <h4>Scan Result </h4>
@@ -103,7 +103,7 @@
         function onScanSuccess(qrCodeMessage) {
             document.getElementById("result").innerHTML =
             '<span class="result">' + qrCodeMessage + "</span>";
-            document.getElementById("scanner_value").val() = qrCodeMessage;
+            document.getElementById("scanner_value").innerHTML = qrCodeMessage;
         }
         function onScanError(errorMessage) {
             // Handle Scan Error
@@ -135,8 +135,8 @@
         var long = position.coords.longitude;
         var x = "Your current location is (" + "Latitude: " + position.coords.latitude + ", " + "Longitude: " +    position.coords.longitude + ")";
         document.getElementById("location").innerHTML = x;
-        document.getElementById("lat").val() = lat;
-        document.getElementById("long").val() = long;
+        document.getElementById("lat").innerHTML = lat;
+        document.getElementById("long").innerHTML= long;
       }
     </script>
     <script>  document.getElementById("dataForm").addEventListener("submit", async function(event) {
