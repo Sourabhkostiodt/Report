@@ -35,6 +35,7 @@
 </head>
 <body>
     <form id="dataForm" class="this">
+        <div class="container">
         <h1>Reports</h1>
         <div class="row">
           <label for="exampleInputEmail1">PoleID</label>
@@ -68,12 +69,8 @@
         <div class="row">
           <input type="hidden" id="result" value="" >
         </div>
-        <div class="row">
-            <div class="col">
-                <div id="reader"></div>
-            </div>
-        </div>
-        <div class="container">
+       
+       
                     <div class="row">
                     <div class="col">
                         <input type="submit" class="form-control submit"/>
@@ -83,6 +80,11 @@
                     </div>
      </div>
     </form>
+    <div class="row">
+        <div class="col">
+            <div id="reader"></div>
+        </div>
+    </div>
 
     <script>
         document.getElementById("dataForm").addEventListener("submit", async function(event) {
